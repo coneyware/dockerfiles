@@ -1,5 +1,4 @@
 # elixir_jp
-[![](https://images.microbadger.com/badges/image/coneyware/elixir_jp.svg)](https://microbadger.com/images/coneyware/elixir_jp "Get your own image badge on microbadger.com")
 
 ## Dockerfile内容
 
