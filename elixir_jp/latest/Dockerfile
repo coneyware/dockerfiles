@@ -1,12 +1,11 @@
 ##
-# erlan 22ベースでelixir 1.10
+# erlanベースでelixir最新作成
 #
 ##
-FROM erlang:22-alpine
+FROM erlang:alpine
 MAINTAINER Coneyware
 
-ENV ELIXIR_BRANCH="v1.10" \
-    LC_ALL=ja_JP.UTF-8 \
+ENV LC_ALL=ja_JP.UTF-8 \
     LANG=ja_JP.UTF-8 \
     LANGUAGE=ja_JP:ja \
 	TZ=Asia/Tokyo
@@ -21,7 +20,7 @@ RUN set -x \
    bash \
    git \
  && cd /root \
- && git clone -b $ELIXIR_BRANCH https://github.com/elixir-lang/elixir.git \
+ && git clone https://github.com/elixir-lang/elixir.git \
  && cd elixir/ \
  && make clean install \
  && cd .. \
