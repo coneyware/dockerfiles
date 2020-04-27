@@ -65,5 +65,5 @@ SE_SID_AS_SERVICE_listener=ON
 
 ## License
 
-elixir_jp under [LGPL version 3](https://www.gnu.org/licenses/lgpl-3.0.ja.html) and [GPL version 3](https://www.gnu.org/licenses/gpl-3.0.html)
+schemaspy_jp under [LGPL version 3](https://www.gnu.org/licenses/lgpl-3.0.ja.html) and [GPL version 3](https://www.gnu.org/licenses/gpl-3.0.html)
 
