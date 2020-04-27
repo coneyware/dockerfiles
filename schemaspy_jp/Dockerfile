@@ -6,7 +6,8 @@ MAINTAINER  Coneyware
 # cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 # ※ タイムゾーン必要な分だけコピーしたら、あとは消す
 #
-ENV LANG=ja_JP.UTF-8 \
+ENV SCHEMASPY_VERSION="6.1.0" \
+    LANG=ja_JP.UTF-8 \
     LC_ALL=ja_JP.UTF-8 \
 	LANGUAGE=ja_JP:ja \
 	TZ=Asia/Tokyo
@@ -26,7 +27,7 @@ RUN set -x \
  && mkdir /output \
  && mkdir /usr/local/lib/schemaspy \
  && cd /usr/local/lib/schemaspy \
- && curl -LO https://github.com/schemaspy/schemaspy/releases/download/v6.1.0/schemaspy-6.1.0.jar \
+ && curl -LO https://github.com/schemaspy/schemaspy/releases/download/v$SCHEMASPY_VERSION/schemaspy-$SCHEMASPY_VERSION.jar \
  && adduser -D schemaspy \
  && echo 'schemaspy:schemaspy' | chpasswd \
  && chown -R schemaspy /drivers \
