@@ -38,7 +38,7 @@ services:
       image: "coneyware/schemaspy_jp"
       container_name: "schemaspy_jp"
       hostname: "schemaspy"
-	  # ホストのネットワークに接続
+      # ホストのネットワークに接続
       network_mode: "host"
       volumes:
           - "path/to/output:/output"
