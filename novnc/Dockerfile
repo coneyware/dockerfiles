@@ -19,15 +19,19 @@ RUN set -x \
  && apk update \
  && apk upgrade \
  && apk add --update --no-cache --virtual=build-dependencies \
+   build-base \
    tzdata \
    git \
- && cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
+   py-pip \
+   python2-dev \
  && apk add --update --no-cache \
-   bash \
    procps \
    python2 \
+ && cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
  && git clone --depth 1 -b $NOVNC_TAG https://github.com/novnc/noVNC.git /root/noVNC \
  && git clone --depth 1 https://github.com/novnc/websockify /root/noVNC/utils/websockify \
+ && pip install numpy \
+ && rm -rf /root/.cache/pip \
  && chmod +x /root/entry.sh \
  && rm -r /root/noVNC/.git \
  && rm -r /root/noVNC/utils/websockify/.git \
