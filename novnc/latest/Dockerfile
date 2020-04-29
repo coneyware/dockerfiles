@@ -11,10 +11,6 @@ MAINTAINER  Coneyware
 #   procps は必要（ps -pがbusyboxだけではエラーになる）
 #
 COPY home /root
-ENV NOVNC_TAG="v1.1.0" \
-    PORT=6080 \
-    VNC_HOST=localhost \
-    VNC_PORT=5900
 RUN set -x \
  && apk update \
  && apk upgrade \
@@ -26,11 +22,14 @@ RUN set -x \
    bash \
    procps \
    python2 \
- && git clone --depth 1 -b $NOVNC_TAG https://github.com/novnc/noVNC.git /root/noVNC \
+ && git clone --depth 1 https://github.com/novnc/noVNC.git /root/noVNC \
  && git clone --depth 1 https://github.com/novnc/websockify /root/noVNC/utils/websockify \
  && chmod +x /root/entry.sh \
  && rm -r /root/noVNC/.git \
  && rm -r /root/noVNC/utils/websockify/.git \
  && apk del --purge build-dependencies
+ENV PORT=6080 \
+    VNC_HOST=localhost \
+    VNC_PORT=5900
 EXPOSE 6080
 ENTRYPOINT ["/root/entry.sh"]
