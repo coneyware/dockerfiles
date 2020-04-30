@@ -10,8 +10,12 @@ MAINTAINER  Coneyware
 #  noVnc
 #   procps は必要（ps -pがbusyboxだけではエラーになる）
 #
+#   python2 \
+# && pip install numpy \
+# && rm -rf /root/.cache/pip \
 COPY home /root
-ENV PORT=6080 \
+ENV NOVNC_TAG="v1.1.0" \
+    PORT=6080 \
     VNC_HOST=localhost \
     VNC_PORT=5900
 RUN set -x \
@@ -19,16 +23,19 @@ RUN set -x \
  && apk upgrade \
  && apk add --update --no-cache --virtual=build-dependencies \
    build-base \
-   python3-dev \
    tzdata \
    git \
- && cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
+   py-pip \
+   python2-dev \
  && apk add --update --no-cache \
-   python3 \
- && git clone --depth 1 https://github.com/novnc/noVNC.git /root/noVNC \
- && pip3 install websockify \
+   python2 \
+ && cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
+ && git clone --depth 1 -b $NOVNC_TAG https://github.com/novnc/noVNC.git /root/noVNC \
+ && git clone --depth 1 https://github.com/novnc/websockify /root/noVNC/utils/websockify \
+ && pip install numpy \
  && rm -rf /root/.cache/pip \
  && rm -r /root/noVNC/.git \
+ && rm -r /root/noVNC/utils/websockify/.git \
  && sed -i -e 's/bash/ash/g' /root/noVNC/utils/launch.sh \
  && sed -i -e 's/ps -p/ps -o pid | grep/g' /root/noVNC/utils/launch.sh \
  && apk del --purge build-dependencies \

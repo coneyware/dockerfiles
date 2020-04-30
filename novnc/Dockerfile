@@ -1,6 +1,6 @@
 FROM alpine
 MAINTAINER  Coneyware
-# docker run -it --rm -p 6080:6080 -p 4444:4444 -v mount:/root/mount xxx /root/entry.sh
+# docker run -it --rm -e PORT=6080 -e VNC_HOST=xxxx -p 6080:6080 coneyware/novnc
 #
 # タイムゾーン設定
 # apk add tzdata
@@ -20,21 +20,21 @@ RUN set -x \
  && apk upgrade \
  && apk add --update --no-cache --virtual=build-dependencies \
    build-base \
+   python3-dev \
    tzdata \
    git \
-   py-pip \
-   python2-dev \
- && apk add --update --no-cache \
-   procps \
-   python2 \
  && cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
+ && apk add --update --no-cache \
+   python3 \
  && git clone --depth 1 -b $NOVNC_TAG https://github.com/novnc/noVNC.git /root/noVNC \
- && git clone --depth 1 https://github.com/novnc/websockify /root/noVNC/utils/websockify \
- && pip install numpy \
+ && pip3 install websockify \
  && rm -rf /root/.cache/pip \
- && chmod +x /root/entry.sh \
  && rm -r /root/noVNC/.git \
- && rm -r /root/noVNC/utils/websockify/.git \
- && apk del --purge build-dependencies
+ && sed -i -e 's/bash/ash/g' /root/noVNC/utils/launch.sh \
+ && sed -i -e 's/ps -p/ps -o pid | grep/g' /root/noVNC/utils/launch.sh \
+ && apk del --purge build-dependencies \
+ && echo '#!/bin/ash' > /root/entry.sh \
+ && echo '/root/noVNC/utils/launch.sh --listen $PORT --vnc $VNC_HOST':'$VNC_PORT $@'>> /root/entry.sh \
+ && chmod +x /root/entry.sh
 EXPOSE 6080
 ENTRYPOINT ["/root/entry.sh"]
