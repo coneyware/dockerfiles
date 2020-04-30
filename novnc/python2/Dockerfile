@@ -6,13 +6,7 @@ MAINTAINER  Coneyware
 # apk add tzdata
 # cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 # ※ タイムゾーン必要な分だけコピーしたら、あとは消す
-# 
-#  noVnc
-#   procps は必要（ps -pがbusyboxだけではエラーになる）
 #
-#   python2 \
-# && pip install numpy \
-# && rm -rf /root/.cache/pip \
 ENV NOVNC_TAG="v1.1.0" \
     PORT=6080 \
     VNC_HOST=localhost \

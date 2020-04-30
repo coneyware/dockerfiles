@@ -6,9 +6,6 @@ MAINTAINER  Coneyware
 # apk add tzdata
 # cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 # ※ タイムゾーン必要な分だけコピーしたら、あとは消す
-# 
-#  noVnc
-#   procps は必要（ps -pがbusyboxだけではエラーになる）
 #
 ENV PORT=6080 \
     VNC_HOST=localhost \
