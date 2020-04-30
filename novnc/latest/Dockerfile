@@ -10,7 +10,6 @@ MAINTAINER  Coneyware
 #  noVnc
 #   procps は必要（ps -pがbusyboxだけではエラーになる）
 #
-COPY home /root
 ENV PORT=6080 \
     VNC_HOST=localhost \
     VNC_PORT=5900

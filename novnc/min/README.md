@@ -4,6 +4,7 @@
 
 1. alpineベース
 
+
 ### 起動ファイル
 
 `/root/entry.sh`
@@ -14,6 +15,8 @@ cd /root/noVNC/utils
 ```
 
 ## 使用方法
+
+numpyを入れていないので遅くなる。
 
 ``` bash
 docker run --rm -it -e PORT=6080 -e VNC_HOST=HOSTNAME -p 6080:6080 coneyware/novnc

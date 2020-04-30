@@ -13,7 +13,6 @@ MAINTAINER  Coneyware
 #   python2 \
 # && pip install numpy \
 # && rm -rf /root/.cache/pip \
-COPY home /root
 ENV NOVNC_TAG="v1.1.0" \
     PORT=6080 \
     VNC_HOST=localhost \
