@@ -45,14 +45,14 @@ http://localhost:6080/vnc.html?host=localhost&port=6080
 	+ python 3
 	+ numpy　あり
 	+ noVncのバージョン指定（tag:v9.9.9）
-* v9.9.9-python2
+* python2
 	+ python 2
 	+ numpy　あり
-	+ noVncのバージョン指定（tag:v9.9.9）
-* v9.9.9-min
+	+ noVncのバージョン指定なし（master）
+* min
 	+ python 2
 	+ numpy　__なし__
-	+ noVncのバージョン指定（tag:v9.9.9）
+	+ noVncのバージョン指定なし（master）
 
 ## License
 
