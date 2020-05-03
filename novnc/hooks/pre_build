@@ -1,0 +1,4 @@
+#! /bin/bash
+docker build docker build --build-arg CUSTOM=$VAR -f $DOCKERFILE_PATH/min -t $DOCKER_REPO:min .
+docker push $DOCKER_REPO:min
+

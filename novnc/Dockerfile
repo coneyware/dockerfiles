@@ -6,9 +6,8 @@ MAINTAINER  Coneyware
 # apk add tzdata
 # cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 # ※ タイムゾーン必要な分だけコピーしたら、あとは消す
-# 
-ENV NOVNC_TAG="v1.1.0" \
-    PORT=6080 \
+#
+ENV PORT=6080 \
     VNC_HOST=localhost \
     VNC_PORT=5900
 RUN set -x \
@@ -22,7 +21,7 @@ RUN set -x \
  && cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
  && apk add --update --no-cache \
    python3 \
- && git clone --depth 1 -b $NOVNC_TAG https://github.com/novnc/noVNC.git /root/noVNC \
+ && git clone --depth 1 https://github.com/novnc/noVNC.git /root/noVNC \
  && pip3 install websockify \
  && rm -rf /root/.cache/pip \
  && rm -r /root/noVNC/.git \
