@@ -1,11 +1,13 @@
 #! /bin/bash
 cd min
-echo docker build -f $DOCKERFILE_PATH -t $DOCKER_REPO:min .
 echo $(pwd)
-echo $DOCKERFILE_PATH
-echo $DOCKER_REPO
-echo $DOCKER_TAG
-echo $IMAGE_NAME
+echo docker build -f $DOCKERFILE_PATH -t $DOCKER_REPO:min .
 docker build -f $DOCKERFILE_PATH -t $DOCKER_REPO:min .
 docker push $DOCKER_REPO:min
+cd ../python2
+echo $(pwd)
+echo docker build -f $DOCKERFILE_PATH -t $DOCKER_REPO:python2 .
+docker build -f $DOCKERFILE_PATH -t $DOCKER_REPO:python2 .
+docker push $DOCKER_REPO:python2
+cd ..
 
