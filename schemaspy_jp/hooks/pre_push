@@ -1,0 +1,4 @@
+#!/bin/bash
+echo $IMAGE_NAME
+echo $DOCKER_REPO
+
