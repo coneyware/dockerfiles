@@ -1,4 +1,6 @@
-#! /bin/bash
+#!/bin/bash
+echo $IMAGE_NAME
+echo $DOCKER_REPO
 docker tag $IMAGE_NAME $DOCKER_REPO:latest
 docker push $DOCKER_REPO:latest
 
