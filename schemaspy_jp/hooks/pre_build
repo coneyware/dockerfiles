@@ -1,0 +1,5 @@
+#! /bin/bash
+echo $(pwd)
+echo $IMAGE_NAME
+echo $DOCKER_REPO
+
