@@ -1,4 +1,5 @@
-# elixir_jp
+[github](https://github.com/coneyware/dockerfiles/tree/master/elixir_jp)
+[dockerhub](https://hub.docker.com/r/coneyware/elixir_jp)
 
 ## Dockerfile内容
 
