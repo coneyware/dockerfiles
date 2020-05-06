@@ -6,7 +6,7 @@ MAINTAINER  Coneyware
 # cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 # ※ タイムゾーン必要な分だけコピーしたら、あとは消す
 #
-ENV SCHEMASPY_VERSION="6.1.0" \
+ENV SCHEMASPY_VERSION="6.0.0" \
     LANG=ja_JP.UTF-8 \
     LC_ALL=ja_JP.UTF-8 \
 	LANGUAGE=ja_JP:ja \
