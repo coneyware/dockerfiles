@@ -5,6 +5,6 @@ echo $DOCKER_REPO
 echo $DOCKER_TAG
 echo $SOURCE_BRANCH
 echo $SOURCE_COMMIT
-echo docker tag $IMAGE_NAME $DOCKER_REPO:latest
+docker tag $IMAGE_NAME $DOCKER_REPO:latest
 echo docker push $DOCKER_REPO:latest
 
