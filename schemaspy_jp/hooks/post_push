@@ -1,10 +1,4 @@
 #! /bin/bash
-echo $(pwd)
-echo $IMAGE_NAME
-echo $DOCKER_REPO
-echo $DOCKER_TAG
-echo $SOURCE_BRANCH
-echo $SOURCE_COMMIT
 docker tag $IMAGE_NAME $DOCKER_REPO:latest
 docker push $DOCKER_REPO:latest
 
