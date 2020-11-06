@@ -1,11 +1,11 @@
 ##
-# erlan 22ベースでelixir 1.10
+# erlang 23.1ベースでelixir 1.11
 #
 ##
-FROM erlang:22-alpine
+FROM erlang:23.1-alpine
 MAINTAINER Coneyware
 
-ENV ELIXIR_BRANCH="v1.10" \
+ENV ELIXIR_BRANCH="v1.11" \
     LC_ALL=ja_JP.UTF-8 \
     LANG=ja_JP.UTF-8 \
     LANGUAGE=ja_JP:ja \
